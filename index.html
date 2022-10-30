@@ -5,10 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="../project-calculator/calc-script.js" defer></script>
+    <script src="calc-script.js" defer></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    
+  <h1 class="header">Calculator</h1>
+  <div class="calcDivMain">
+        <div class="display">
+            00000
+        </div>
+
+        <div class="buttonDiv">
+            <div class="row clearDeleteDiv">
+                <button class="clear">Clear</button>
+                <button class="delete">Delete</button>
+            </div>
+            
+            <div class="row numRowOne">
+                <button class="button 7">7</button>
+                <button class="button 8">8</button>
+                <button class="button 9">9</button>
+                <button class="button /">÷</button>
+            </div>
+
+            <div class="row numRowTwo">
+                <button class="button 4">4</button>
+                <button class="button 5">5</button>
+                <button class="button 6">6</button>
+                <button class="button x">x</button>
+            </div>
+
+            <div class="row numRowThree">
+                <button class="button 1">1</button>
+                <button class="button 2">2</button>
+                <button class="button 3">3</button>
+                <button class="button -">-</button>
+            </div>
+            
+            <div class="row numRowFour">
+                <button class="button .">.</button>
+                <button class="button 0">0</button>
+                <button class="button =">=</button>
+                <button class="button +">+</button>
+            </div>
+        </div>
+  </div>
+
 </body>
 </html>
