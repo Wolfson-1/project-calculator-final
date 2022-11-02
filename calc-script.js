@@ -1,5 +1,6 @@
 //vairables
 let dispValue = "";
+let secondOperandValue ="";
 //number button query selectors
 const oneBtn = document.querySelector(".one");
 const twoBtn = document.querySelector(".two");
@@ -57,6 +58,16 @@ switch (operator) {
     case "*":
         return multiply(a,b);
 }};
+
+//calculator function (sudo code)
+    //Take value input from calculator. Display on calc display
+    //parse input value to second variable on click of selected operator. Display parsed value in secondary display. 
+    //add operator to second variable in display
+    //take input of second variable from user
+        //if equals is selected: execute sum and return value in main display
+        //if another operator is selected execute previous sum & assign next operator value. Display current sum total in main display
+
+
 
 //Numeric button event listeners
 oneBtn.addEventListener('click', () => {
