@@ -47,7 +47,7 @@
     align-items: flex-end;
 }
 
-#secondOperandDisp {
+#secondDisp {
     display: flex;
     justify-content: right;
     align-items: flex-start;

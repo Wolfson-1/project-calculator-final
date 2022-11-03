@@ -1,6 +1,9 @@
 //vairables
 let dispValue = "";
-let secondOperandValue ="";
+let secondDispValue ="";
+let operator = "";
+let calcResult = "";
+
 //number button query selectors
 const oneBtn = document.querySelector(".one");
 const twoBtn = document.querySelector(".two");
@@ -53,14 +56,14 @@ switch (operator) {
         return add(a,b);
     case "-":
         return subtract(a,b);
-    case "/":
+    case "÷":
         return divide(a,b);
-    case "*":
+    case "x":
         return multiply(a,b);
 }};
 
 //calculator function (sudo code)
-    //Take value input from calculator. Display on calc display
+    //Take value input from calculator. Display on calc display: DONE VIA BUTTON EVENT LISTENER
     //parse input value to second variable on click of selected operator. Display parsed value in secondary display. 
     //add operator to second variable in display
     //take input of second variable from user
@@ -150,9 +153,12 @@ deciBtn.addEventListener('click', () => {
 //clear event listener
 clearBtn.addEventListener('click', () => {
     dispValue = "";
+    secondDispValue = "";
+    calcResult = "";
 
     //display query selector
     document.getElementById("display").innerHTML = dispValue;
+    document.getElementById("secondDisp").innerHTML = secondDispValue
 });
 
 //delete event listener
@@ -162,3 +168,77 @@ delBtn.addEventListener('click', () => {
     //display query selector
     document.getElementById("display").innerHTML = dispValue;
 });
+
+
+//Event listener for operators
+addBtn.addEventListener('click', () => {
+    if (calcResult = "") {
+        secondDispValue = dispValue;
+        dispValue = "";
+        operator = "+";
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+        document.getElementById("display").innerHTML = dispValue;
+    } else {
+        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+    };
+});
+    
+
+addBtn.addEventListener('click', () => {
+    secondDispValue = dispValue;
+    dispValue = "";
+    operator = "+";
+    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+    document.getElementById("display").innerHTML = dispValue;
+});
+
+subBtn.addEventListener('click', () => {
+    secondDispValue = dispValue;
+    dispValue = "";
+    operator = "-";
+    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+    document.getElementById("display").innerHTML = dispValue;
+});
+
+multiBtn.addEventListener('click', () => {
+    secondDispValue = dispValue;
+    dispValue = "";
+    operator = "x";
+    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+    document.getElementById("display").innerHTML = dispValue;
+});
+
+divideBtn.addEventListener('click', () => {
+    secondDispValue = dispValue;
+    dispValue = "";
+    operator = "÷";
+    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+    document.getElementById("display").innerHTML = dispValue;
+});
+
+
+//equals event listener to execute sum
+equalBtn.addEventListener('click', () => {
+    calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+    document.getElementById("display").innerHTML = calcResult;
+    dispValue = calcResult;
+});
+
+
+
+//if statement function for operator button to sum if operator is executed & second value already exists WORK IN PROGRESS
+/*
+addBtn.addEventListener('click', () => {
+    if (calcResult = "") {
+        secondDispValue = dispValue;
+        dispValue = "";
+        operator = "+";
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+        document.getElementById("display").innerHTML = dispValue;
+    } else {
+        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+    };
+});
+*/
