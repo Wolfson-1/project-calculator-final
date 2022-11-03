@@ -222,7 +222,7 @@ divideBtn.addEventListener('click', () => {
 equalBtn.addEventListener('click', () => {
     calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
     document.getElementById("display").innerHTML = calcResult;
-    dispValue = calcResult;
+    secondDispValue = calcResult;
 });
 
 
