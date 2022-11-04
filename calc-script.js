@@ -179,7 +179,7 @@ addBtn.addEventListener('click', () => {
             document.getElementById("display").innerHTML = dispValue;
         } else {
             
-            calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+            calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
             operator = "+";
             document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
             secondDispValue = calcResult;
@@ -197,7 +197,7 @@ subBtn.addEventListener('click', () => {
         document.getElementById("display").innerHTML = dispValue;
     } else {
         
-        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
         operator = "-";
         document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
         secondDispValue = calcResult;
@@ -215,7 +215,7 @@ multiBtn.addEventListener('click', () => {
         document.getElementById("display").innerHTML = dispValue;
     } else {
 
-        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
         operator = "x";
         document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
         secondDispValue = calcResult;
@@ -232,7 +232,7 @@ divideBtn.addEventListener('click', () => {
         document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
         document.getElementById("display").innerHTML = dispValue;
     } else {
-        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
         operator = "÷";
         document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
         secondDispValue = calcResult;
@@ -244,8 +244,9 @@ divideBtn.addEventListener('click', () => {
 
 //equals event listener to execute sum
 equalBtn.addEventListener('click', () => {
-    calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+    calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
     document.getElementById("display").innerHTML = calcResult;
     document.getElementById("secondDisp").innerHTML = "0000";
-    secondDispValue = calcResult;
+    dispValue = calcResult
+    secondDispValue = "";
 });
