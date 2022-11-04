@@ -67,7 +67,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: flex-start;
-    color: rgba(219, 120, 20, 0.714);
+    color: orange;
 }
 
 .button {
