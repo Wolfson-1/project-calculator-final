@@ -158,7 +158,7 @@ clearBtn.addEventListener('click', () => {
 
     //display query selector
     document.getElementById("display").innerHTML = dispValue;
-    document.getElementById("secondDisp").innerHTML = secondDispValue
+    document.getElementById("secondDisp").innerHTML = "0000";
 });
 
 //delete event listener
@@ -168,53 +168,77 @@ delBtn.addEventListener('click', () => {
     //display query selector
     document.getElementById("display").innerHTML = dispValue;
 });
+    
 
-
-//Event listener for operators
 addBtn.addEventListener('click', () => {
-    if (calcResult = "") {
+        if (secondDispValue == "") {
+            secondDispValue = dispValue;
+            dispValue = "";
+            operator = "+";
+            document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+            document.getElementById("display").innerHTML = dispValue;
+        } else {
+            
+            calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+            operator = "+";
+            document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+            secondDispValue = calcResult;
+            dispValue = "";
+            document.getElementById("display").innerHTML = dispValue;
+        };
+    });
+
+subBtn.addEventListener('click', () => {
+    if (secondDispValue == "") {
         secondDispValue = dispValue;
         dispValue = "";
-        operator = "+";
+        operator = "-";
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+        document.getElementById("display").innerHTML = dispValue;
+    } else {
+        
+        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        operator = "-";
+        document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+        secondDispValue = calcResult;
+        dispValue = "";
+        document.getElementById("display").innerHTML = dispValue;
+    };
+});
+
+multiBtn.addEventListener('click', () => {
+    if (secondDispValue == "") {
+        secondDispValue = dispValue;
+        dispValue = "";
+        operator = "x";
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+        document.getElementById("display").innerHTML = dispValue;
+    } else {
+
+        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        operator = "x";
+        document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+        secondDispValue = calcResult;
+        dispValue = "";
+        document.getElementById("display").innerHTML = dispValue;
+    };
+});
+
+divideBtn.addEventListener('click', () => {
+    if (secondDispValue == "") {
+        secondDispValue = dispValue;
+        dispValue = "";
+        operator = "÷";
         document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
         document.getElementById("display").innerHTML = dispValue;
     } else {
         calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
+        operator = "÷";
         document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
+        secondDispValue = calcResult;
+        dispValue = "";
+        document.getElementById("display").innerHTML = dispValue;
     };
-});
-    
-
-addBtn.addEventListener('click', () => {
-    secondDispValue = dispValue;
-    dispValue = "";
-    operator = "+";
-    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
-    document.getElementById("display").innerHTML = dispValue;
-});
-
-subBtn.addEventListener('click', () => {
-    secondDispValue = dispValue;
-    dispValue = "";
-    operator = "-";
-    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
-    document.getElementById("display").innerHTML = dispValue;
-});
-
-multiBtn.addEventListener('click', () => {
-    secondDispValue = dispValue;
-    dispValue = "";
-    operator = "x";
-    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
-    document.getElementById("display").innerHTML = dispValue;
-});
-
-divideBtn.addEventListener('click', () => {
-    secondDispValue = dispValue;
-    dispValue = "";
-    operator = "÷";
-    document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
-    document.getElementById("display").innerHTML = dispValue;
 });
 
 
@@ -222,23 +246,6 @@ divideBtn.addEventListener('click', () => {
 equalBtn.addEventListener('click', () => {
     calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
     document.getElementById("display").innerHTML = calcResult;
+    document.getElementById("secondDisp").innerHTML = "0000";
     secondDispValue = calcResult;
 });
-
-
-
-//if statement function for operator button to sum if operator is executed & second value already exists WORK IN PROGRESS
-/*
-addBtn.addEventListener('click', () => {
-    if (calcResult = "") {
-        secondDispValue = dispValue;
-        dispValue = "";
-        operator = "+";
-        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
-        document.getElementById("display").innerHTML = dispValue;
-    } else {
-        calcResult = operate(operator,parseInt(secondDispValue),parseInt(dispValue)); 
-        document.getElementById("secondDisp").innerHTML = `${calcResult} ${operator}`;
-    };
-});
-*/
