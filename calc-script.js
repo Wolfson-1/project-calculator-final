@@ -177,6 +177,9 @@ addBtn.addEventListener('click', () => {
             operator = "+";
             document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
             document.getElementById("display").innerHTML = dispValue;
+        } else if (dispValue == "" && operator == "+") {
+            document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+
         } else {
             
             calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
@@ -195,6 +198,10 @@ subBtn.addEventListener('click', () => {
         operator = "-";
         document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
         document.getElementById("display").innerHTML = dispValue;
+    } else if (dispValue == "" && operator == "-") {
+       
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`
+    
     } else {
         
         calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
@@ -213,6 +220,10 @@ multiBtn.addEventListener('click', () => {
         operator = "x";
         document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
         document.getElementById("display").innerHTML = dispValue;
+    } else if (dispValue == "" && operator == "x") {
+        
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+    
     } else {
 
         calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
@@ -231,6 +242,10 @@ divideBtn.addEventListener('click', () => {
         operator = "÷";
         document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
         document.getElementById("display").innerHTML = dispValue;
+    } else if (dispValue == "" && operator == "÷") {
+       
+        document.getElementById("secondDisp").innerHTML = `${secondDispValue} ${operator}`;
+
     } else {
         calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
         operator = "÷";
@@ -244,9 +259,13 @@ divideBtn.addEventListener('click', () => {
 
 //equals event listener to execute sum
 equalBtn.addEventListener('click', () => {
-    calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
-    document.getElementById("display").innerHTML = calcResult;
-    document.getElementById("secondDisp").innerHTML = "0000";
-    dispValue = calcResult
-    secondDispValue = "";
+   if (dispValue == "" || secondDispValue == "" || operator == "" ) {
+//Do nothing.
+   } else {
+        calcResult = operate(operator,parseFloat(secondDispValue),parseFloat(dispValue)); 
+        document.getElementById("display").innerHTML = calcResult;
+        document.getElementById("secondDisp").innerHTML = "0000";
+        dispValue = calcResult
+        secondDispValue = "";
+   }
 });
